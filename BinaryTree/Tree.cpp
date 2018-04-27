@@ -16,30 +16,11 @@ Tree::~Tree()
 struct Node
 {
 	int key_value;
-	Node *left;
-	Node *right;
+	Node *left = NULL;
+	Node *right = NULL;
 };
 
- void *Tree::search(int key, Node *leaf)
-{
-	if (leaf != NULL)
-	{
-		if (key == leaf->key_value)
-			return leaf;
-		if (key<leaf->key_value)
-			return search(key, leaf->left);
-		else
-			return search(key, leaf->right);
-	}
-	else return leaf = NULL;
-}
-
- void *Tree::search(int key)
- {
-	 return search(key, root);
- }
-
-void insert(int key, Node *leaf)
+ void Tree::insert(int key, Node *leaf)
 {
 	if (key< leaf->key_value)
 	{
@@ -67,6 +48,32 @@ void insert(int key, Node *leaf)
 	}
 }
 
+ //void Tree::printRightTree()
+ //{
+	// Node * printRight = root;
+	// while (printRight != NULL)
+	// {
+	//	 std::cout << printRight->key_value << "\n\n";
+	//	 std::cout << printRight->left->key_value << "\n\n";
+	//	 std::cout << printRight->right->key_value << "\n\n";
+	//	 printRight = printRight->right;
+	// }
+	// std::cout << "\n\n";
+ //}
+
+// void Tree::printLeftTree()
+// {
+//	 Node * printLeft = root;
+//	 while (printLeft != NULL)
+//	 {
+//		 std::cout << printLeft->key_value << "\n\n";
+//		 std::cout << printLeft->left->key_value << "\n\n";
+//		 std::cout << printLeft->right->key_value << "\n\n";
+//		 printLeft = printLeft->left;
+//	 }
+//	 std::cout << "\n\n";
+// }
+//
 void Tree::destroyTree(Node *leaf)
 {
 	if (leaf != NULL)
@@ -74,7 +81,6 @@ void Tree::destroyTree(Node *leaf)
 		destroyTree(leaf->left);
 		destroyTree(leaf->right);
 		delete leaf;
-		delete root;
 	}
 }
 
