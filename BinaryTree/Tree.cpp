@@ -16,8 +16,8 @@ Tree::~Tree()
 struct Node
 {
 	int key_value;
-	Node *left = NULL;
-	Node *right = NULL;
+	Node *left;
+	Node *right;
 };
 
  void Tree::insert(int key, Node *leaf)
