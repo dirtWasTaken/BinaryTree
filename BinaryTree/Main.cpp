@@ -24,5 +24,8 @@ int main()
 
 	Tree.search(12);
 
+	Tree.printTree();
+
 	Tree.destroyTree();
+	system("pause");
 }

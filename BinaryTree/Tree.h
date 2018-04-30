@@ -30,9 +30,8 @@ public:
 
 	void destroyTree();
 
-	//void printRightTree();
+	void printTree();
 
-	//void printLeftTree();
 
 private:
 

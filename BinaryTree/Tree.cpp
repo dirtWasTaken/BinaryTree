@@ -48,39 +48,24 @@ struct Node
 	}
 }
 
- //void Tree::printRightTree()
- //{
-	// Node * printRight = root;
-	// while (printRight != NULL)
-	// {
-	//	 std::cout << printRight->key_value << "\n\n";
-	//	 std::cout << printRight->left->key_value << "\n\n";
-	//	 std::cout << printRight->right->key_value << "\n\n";
-	//	 printRight = printRight->right;
-	// }
-	// std::cout << "\n\n";
- //}
+ void Tree::printTree()
+ {
+	 bool output = false;
+	 Node * printptr = root;
+	 while (output == false)
+	 {
+		 std::cout << printptr->key_value << "\n\n";
+		 output = true;
+	 }
+	 std::cout << "\n\n";
+ }
 
-// void Tree::printLeftTree()
-// {
-//	 Node * printLeft = root;
-//	 while (printLeft != NULL)
-//	 {
-//		 std::cout << printLeft->key_value << "\n\n";
-//		 std::cout << printLeft->left->key_value << "\n\n";
-//		 std::cout << printLeft->right->key_value << "\n\n";
-//		 printLeft = printLeft->left;
-//	 }
-//	 std::cout << "\n\n";
-// }
-//
 void Tree::destroyTree(Node *leaf)
 {
 	if (leaf != NULL)
 	{
 		destroyTree(leaf->left);
 		destroyTree(leaf->right);
-		delete leaf;
 	}
 }
 
