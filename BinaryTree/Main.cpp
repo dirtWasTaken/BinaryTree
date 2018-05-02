@@ -27,5 +27,6 @@ int main()
 	Tree.printTree();
 
 	Tree.destroyTree();
+
 	system("pause");
 }

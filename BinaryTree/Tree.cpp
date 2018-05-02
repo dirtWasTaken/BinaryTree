@@ -50,12 +50,11 @@ struct Node
 
  void Tree::printTree()
  {
-	 bool output = false;
 	 Node * printptr = root;
-	 while (output == false)
+	 while (printptr != NULL)
 	 {
-		 std::cout << printptr->key_value << "\n\n";
-		 output = true;
+		std::cout << printptr->key_value << "\n\n";
+		printptr = printptr->left;
 	 }
 	 std::cout << "\n\n";
  }
