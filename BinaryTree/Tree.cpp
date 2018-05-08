@@ -1,25 +1,34 @@
 #include "Tree.h"
 
 
+/****************************************************************************************************
 
+****************************************************************************************************/
 Tree::Tree()
 {
 	root = NULL;
 }
 
+/****************************************************************************************************
 
+****************************************************************************************************/
 Tree::~Tree()
 {
 	destroyTree();
 }
-
+/****************************************************************************************************
+node definition 
+****************************************************************************************************/
 struct Node
 {
 	int key_value;
 	Node *left;
 	Node *right;
 };
-
+/****************************************************************************************************
+the private insert function balances the tree accoding to the key value that comes before the value being inserted,
+anything lower goes to the left, anything higher goes to the right  
+****************************************************************************************************/
  void Tree::insert(int key, Node *leaf)
 {
 	if (key< leaf->key_value)
@@ -47,18 +56,23 @@ struct Node
 		}
 	}
 }
-
+ /****************************************************************************************************
+	
+ ****************************************************************************************************/
  void Tree::printTree()
  {
 	 Node * printptr = root;
 	 while (printptr != NULL)
 	 {
+		 
 		std::cout << printptr->key_value << "\n\n";
 		printptr = printptr->left;
 	 }
 	 std::cout << "\n\n";
  }
-
+ /****************************************************************************************************
+ destroyed the tree
+ ****************************************************************************************************/
 void Tree::destroyTree(Node *leaf)
 {
 	if (leaf != NULL)
@@ -67,7 +81,11 @@ void Tree::destroyTree(Node *leaf)
 		destroyTree(leaf->right);
 	}
 }
-
+/****************************************************************************************************
+function that checks if the value is the first to be inserted, if so it makes the root pointer into 
+a new node and assigns the value to it otherwisesequential values after the initial value will be put
+through the second private function of insert to balance it based upon the initial value
+****************************************************************************************************/
 void Tree::insert(int key)
 {
 	if (root != NULL)
@@ -82,7 +100,9 @@ void Tree::insert(int key)
 		root->right = NULL;
 	}
 }
-
+/****************************************************************************************************
+destroy function 
+****************************************************************************************************/
 void Tree::destroyTree()
 {
 	destroyTree(root);
